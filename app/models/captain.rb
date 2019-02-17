@@ -11,6 +11,7 @@ class Captain < ActiveRecord::Base
 
   def self.talented_seafarers
     test = all.includes(boats: :classifications).where(classifications: { name: "Motorboat", name: "Sailboat" }).uniq
+    binding.pry
   end
 
   def self.non_sailors
