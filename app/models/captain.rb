@@ -15,7 +15,6 @@ class Captain < ActiveRecord::Base
         all.includes(boats: :classifications).where(classifications: { name: "Motorboat", name: "Sailboat" }).uniq
       end 
     end
-    binding.pry
   end
 
   def self.non_sailors
