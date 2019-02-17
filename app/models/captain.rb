@@ -14,7 +14,7 @@ class Captain < ActiveRecord::Base
       if cap.admiral == true
         all.includes(boats: :classifications).where(classifications: { name: "Motorboat", name: "Sailboat" }).uniq
       end 
-    end 
+    end
     binding.pry
   end
 
