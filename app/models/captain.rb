@@ -10,8 +10,8 @@ class Captain < ActiveRecord::Base
   end
 
   def self.talented_seafarers
-    all.includes(boats: :classifications).where(classifications: { name: "Motorboat" }).pluck(:id) & self.sailors.pluck(:id)
-    where("id IN (?)"
+    captains = all.includes(boats: :classifications).where(classifications: { name: "Motorboat" }).pluck(:id) & self.sailors.pluck(:id)
+    where("id IN (?)", captains)
   end
 
   def self.non_sailors
