@@ -10,7 +10,11 @@ class Captain < ActiveRecord::Base
   end
 
   def self.talented_seafarers
-    test = all.includes(boats: :classifications).where(classifications: { name: "Motorboat", name: "Sailboat" }).uniq
+    all.each do |cap|
+      if cap.admiral == true
+        all.includes(boats: :classifications).where(classifications: { name: "Motorboat", name: "Sailboat" }).uniq
+      end 
+    end 
     binding.pry
   end
 
